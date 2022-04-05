@@ -47,6 +47,21 @@
         }
 
         rotateArray(2);
+
+
+        function reduceSum() {
+            const nums = [1, 2, 3, 4, 5];
+            const initialNum = 50;
+
+            const total = nums.reduce((prevNum, currNum) => {
+                return prevNum + currNum;
+            }, initialNum)
+
+            console.log(total);
+
+        }
+
+        reduceSum();
     </script>
 </body>
 
