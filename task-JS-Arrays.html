@@ -78,7 +78,30 @@
         }
 
         const limit = 7;
-        numsArray(limit)
+        numsArray(limit);
+
+        var myZoo = [
+            ["King Kong", ["gorilla", 42]],
+            ["Nemo", ["fish", 5]],
+            ["Punxsutawney Phil", ["groundhog", 11]]
+        ];
+
+        function zooInventory(zooArray) {
+            let sentenceArray = [];
+            for (let i = 0; i < zooArray.length; i++) {
+
+                var sentence = zooArray[i][0];
+
+                for (let j = 1; j < zooArray[i].length; j++) {
+                    sentence = sentence + ' the ' + zooArray[i][j][0] + ' is ' + zooArray[i][j][1];
+                    sentenceArray.push(sentence);
+                }
+            }
+            console.log(sentenceArray);
+
+        }
+
+        zooInventory(myZoo);
     </script>
 </body>
 
