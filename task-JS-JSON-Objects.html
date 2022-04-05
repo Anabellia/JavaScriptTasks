@@ -20,6 +20,18 @@
         const jsonParsed = JSON.parse(personJSON);
 
         console.log(jsonParsed);
+
+        const objectConvert = JSON.stringify(person);
+        console.log(objectConvert);
+
+        const nums = [1, 2, 3, 4];
+        const numsJSON = '[1,2,3,4]';
+
+        const numsArr = JSON.parse(numsJSON);
+
+        for (let i = 0; i < numsArr.length; i++) {
+            console.log(numsArr[i]);
+        }
     </script>
 </body>
 
