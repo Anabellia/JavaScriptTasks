@@ -62,6 +62,23 @@
         }
 
         reduceSum();
+
+        function numsArray(limitNum) {
+            let nums = [];
+
+            for (let i = 0; i < limitNum; i++) {
+                nums.push(i);
+            }
+
+            for (let i = limitNum; i >= 0; i--) {
+                nums.push(i);
+            }
+
+            console.log(nums);
+        }
+
+        const limit = 7;
+        numsArray(limit)
     </script>
 </body>
 
