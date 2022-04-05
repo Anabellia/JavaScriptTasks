@@ -19,6 +19,19 @@
             console.log(number);
 
         }
+
+
+        function scopeLet() {
+            for (var i = 0; i < 5; i++) {
+                let num = 2;
+            }
+
+            console.log(num);
+        }
+
+
+        scopeVar();
+        scopeLet();
     </script>
 </body>
 
