@@ -29,7 +29,24 @@
             colors.forEach(element => {
                 console.log(element);
             });
-        })()
+        })();
+
+
+        let rotateArray = (steps) => {
+            const numbers = [1, 2, 3, 4, 5, 6, 7];
+
+
+
+            for (i = 0; i < steps; i++) {
+                numbers.unshift(numbers.pop());
+
+            }
+
+            console.log(numbers);
+
+        }
+
+        rotateArray(2);
     </script>
 </body>
 
