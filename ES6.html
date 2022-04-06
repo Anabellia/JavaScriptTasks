@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+
+<body>
+    <script>
+        /*function addNumber() {
+            var z = 5;
+            if (z === 5) {
+                let f = 3;
+                var c = 6;
+                const d = 7;
+                d = 5;
+            }
+
+            console.log(c);
+            console.log(f);
+        }
+        addNumber();
+
+
+        //ES6
+
+        class Person {
+            constructor(name, age, address) {
+                this.name = name;
+                this.age = age;
+                this.address = address;
+            }
+        }
+
+        class Child extends Person {
+            constructor(name, age, address, parents) {
+                super(name, age, address);
+                this.parents = parents;
+            }
+        }
+
+        //ES5
+
+        function Person(name, age, address) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+        }
+
+        Person.prototype.getName = function () {
+            return this.name;
+        }
+
+        Person.prototype.getAge = function () {
+            return this.age;
+        }
+
+        Person.prototype.getAddress = function () {
+            return this.address;
+        }
+
+        function Child(name, age, address, parents) {
+            Person.call(this, name, age, address);
+            this.parents = parents;
+        }
+*/
+        function traditional(a, b) {
+            return a + b
+        }
+
+        let nums = [1, 2, 3, 4];
+        const numsnew = nums.map((num) => {
+            return num + 2;
+        })
+        console.log(numsnew);
+
+        const myFucntion = () => {
+            console.log(this);
+        }
+
+        myFucntion();
+
+        const myFirstPromise = new Promise((resolve, reject) => {
+            const condition = true;
+            if (condition) {
+                setTimeout(() => {
+                    resolve("Promise is resolved");
+                }, 3000)
+            } else {
+                reject("Promise is rejected");
+            }
+        })
+
+        function demoPromise() {
+            myFirstPromise.then((succesPromise) => {
+                console.log(succesPromise);
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
+
+        async function f() {
+            let promise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve("done!"), 1000)
+            });
+
+            let result = await promise;
+
+            alert(result);
+        }
+    </script>
+</body>
+
+</html>
