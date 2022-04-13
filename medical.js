@@ -7,8 +7,6 @@ const myLogger = new Console({stdout: fs.createWriteStream("actions2.txt")});
 
 class Appointment {
 
-    doc = new Doctor;
-
     constructor(doctor, patient, isScheduled) {
         if(new.target === Appointment) {
             throw new Error("Can't be instantiated");
@@ -25,12 +23,16 @@ class Appointment {
 class BloodPressure extends Appointment {
     constructor(doctor, patient, isScheduled) {
         super(doctor, patient, isScheduled);
-        this.upperValue,
-        this.lowerValue,
-        this.pulse,
-        this.date
+        
         
     }
+    bloodPressureValues(upperValue, lowerValue, pulse, date ) {
+        this.upperValue = upperValue,
+        this.lowerValue = lowerValue,
+        this.pulse = pulse,
+        this.date = date
+    }
+    
 }
 
 class BloodSugar extends Appointment {
@@ -39,7 +41,12 @@ class BloodSugar extends Appointment {
         this.value,
         this.lastMeal,
         this.date
-        
+    }
+
+    bloodSugarValues(value, lastMeal, date ) {
+        this.value = value,
+        this.lastMeal = lastMeal,
+        this.date = date
     }
 }
 
@@ -49,7 +56,12 @@ class Cholesterol extends Appointment {
         this.value,
         this.lastMeal,
         this.date
-        
+    }
+
+    cholesterolValues(value, lastMeal, date) {
+        this.value = value,
+        this.lastMeal = lastMeal,
+        this.date = date
     }
 }
 
@@ -57,18 +69,9 @@ class Doctor {
     constructor(firstName, lastname, specialty) {
         this.firstName = firstName,
         this.lastname = lastname,
-        this.specialty = specialty,
-        this.appointment
+        this.specialty = specialty
     }
 
-
-    get scheduledAppointment() {
-        return this.appointment;
-    }
-
-    set scheduledAppointment(appointment) {
-        this.appointment = appointment;
-    }
 
     makeAppointment(patient, type) {
         let appointment = {
@@ -77,8 +80,9 @@ class Doctor {
             type: type
         }
 
-        this.scheduledAppointment = appointment;
-        return appointment
+        this.appointment = appointment;
+
+        return this.appointment
     }
 }
 
@@ -90,20 +94,12 @@ class Patient {
         this.healthCardNumber = healthCardNumber
     }
 
-    set doctor(doc){
-        this.doctorChosen = doc
+    set doctor(doctor){
+        this.chosenDoctor = doctor
     }
 
     get doctor() {
-        return this.doctorChosen;
-    }
-
-    set appointmentTaken(date) {
-        this.appointmentTakenDate = date;
-    }
-
-    get appointmentTaken() {
-        return this.appointmentTakenDate;
+        return this.chosenDoctor;
     }
  
 }
@@ -124,30 +120,34 @@ patient1.doctor = doctor1;
 const date = `[${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes()}];`
 doctor1.makeAppointment(patient1.name, "bloodSugar")
 
-if(doctor1.scheduledAppointment.type === "bloodSugar") {
-    patient1.takeAppointment = date;
+if(doctor1.appointment.type === "bloodSugar") {
     const bloodSugar = new BloodSugar(doctor1, patient1, true);
-    bloodSugar.value = (Math.floor(Math.random() * 100));
-    bloodSugar.lastMeal = "16:45";
-    bloodSugar.date = patient1.appointmentTaken;
+    let value = (Math.floor(Math.random() * 100));
+    let lastMeal = "16:45";
+    let dateSchedule = date;
+    bloodSugar.bloodSugarValues(value, lastMeal, dateSchedule);
+
     log(`results for blood sugar appointment: patient "${patient1.name}" - Value: ${bloodSugar.value}, last meal: ${bloodSugar.lastMeal};`)
     
 }
 doctor1.makeAppointment(patient1.name, "bloodPressure")
 
-if (doctor1.scheduledAppointment.type === "bloodPressure") {
-    patient1.takeAppointment = date;
+if (doctor1.appointment.type === "bloodPressure") {
     const bloodPressure = new BloodPressure(doctor1, patient1, true);
-    bloodPressure.lowerValue = (Math.floor(Math.random() * 100));
-    bloodPressure.upperValue = (Math.floor(Math.random() * 200));
-    bloodPressure.pulse = 60;
-    bloodPressure.date = patient1.appointmentTaken;
+    let lowerValue = (Math.floor(Math.random() * 100));
+    let upperValue = (Math.floor(Math.random() * 200));
+    let pulse = 60;
+    let dateSchedule = date;
+    bloodPressure.bloodPressureValues(lowerValue, upperValue, pulse, dateSchedule)
+
     log(`results for blood pressure appointment: patient "${patient1.name}" - upper Value: ${bloodPressure.upperValue}, lower Value: ${bloodPressure.lowerValue}, pulse: ${bloodPressure.pulse};`)
 }
-if (doctor1.scheduledAppointment.type === "cholesterol") {
+if (doctor1.appointment.type === "cholesterol") {
     const cholesterol = new Cholesterol(doctor1, patient1, true);
-    cholesterol.value = (Math.floor(Math.random() * 10));
-    cholesterol.lastMeal = "10:20";
-    cholesterol.date = patient1.appointmentTaken;
+    let value = (Math.floor(Math.random() * 10));
+    let lastMeal = "10:20";
+    let dateSchedule = date;
+    cholesterol.cholesterolValues(value, lastMeal, dateSchedule)
+
     log(`results for cholesterol appointment: patient "${patient1.name}" - Value: ${cholesterol.value}, last meal: ${cholesterol.lastMeal};`)
 }

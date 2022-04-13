@@ -1,4 +1,4 @@
-[13.3.2022 10:35] created patient "Dragan" ;
-[13.3.2022 10:35] created doctor "Milan" ;
-[13.3.2022 10:35] results for blood sugar appointment: patient "Dragan" - Value: 65, last meal: 16:45; ;
-[13.3.2022 10:35] results for blood pressure appointment: patient "Dragan" - upper Value: 5, lower Value: 7, pulse: 60; ;
+[13.3.2022 11:26] created patient "Dragan" ;
+[13.3.2022 11:26] created doctor "Milan" ;
+[13.3.2022 11:26] results for blood sugar appointment: patient "Dragan" - Value: 12, last meal: 16:45; ;
+[13.3.2022 11:26] results for blood pressure appointment: patient "Dragan" - upper Value: 21, lower Value: 53, pulse: 60; ;
