@@ -1,4 +1,0 @@
-[12.3.2022 13:40] created doctor "Milan";
-[12.3.2022 13:40] created patient "Dragan";
-[12.3.2022 13:40] patient "Dragan" chooses "Milan" for his doctor;
-[12.3.2022 13:40] results for blood pressure appointment: patient "Dragan" - upper Value: 6, lower Value: 7, pulse: 60;
